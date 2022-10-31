@@ -29,11 +29,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ inputs.registry }}/${{ inputs.repository }}
-          # add the suffix for all tags, even latest.
-          flavor: |
-            latest=${{ inputs.latest }}
-            suffix=${{ inputs.suffix }}, onlatest=true
+          images: image_name
           tags: |
             type=ref, event=branch
             type=semver, pattern={{version}}, event=tag
